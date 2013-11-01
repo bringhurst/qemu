@@ -162,7 +162,7 @@ virtfs=""
 vnc="yes"
 sparse="no"
 uuid=""
-vde=""
+vde="yes"
 vnc_tls=""
 vnc_sasl=""
 vnc_jpeg=""
@@ -2052,7 +2052,7 @@ int main(void)
     return 0;
 }
 EOF
-  if compile_prog "" "$vde_libs" ; then
+  if compile_prog "-I/home/jonb/dist/vde/master/include" "-L/home/jonb/dist/vde/master/lib $vde_libs" ; then
     vde=yes
     libs_softmmu="$vde_libs $libs_softmmu"
     libs_tools="$vde_libs $libs_tools"
